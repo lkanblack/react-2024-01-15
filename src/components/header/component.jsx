@@ -1,5 +1,7 @@
+import styles from './styles.module.scss';
+
 export const Header = () => {
   return(
-    <header>Header</header>
+    <header className={styles.root}>Header</header>
   )
 }

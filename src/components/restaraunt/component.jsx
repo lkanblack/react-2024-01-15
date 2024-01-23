@@ -1,6 +1,8 @@
+import './style.scss';
+
 export const Restaurant = ({ name, menu, reviews }) => {
   return (
-    <div>
+    <div className='restaraunt'>
       <p>Restaraunt name: <b>{name}</b></p>
       <h3>Menu</h3>
       <ul>
