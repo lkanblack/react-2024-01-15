@@ -6,8 +6,8 @@ import './style.scss';
 export const RestarauntList = () => {
   return(
     <section className='restaraunt-list'>
-      {restaurants.map((place) => (
-        <Restaurant key={place.id} name={place.name} menu={place.menu} reviews={place.reviews}/>
+      {restaurants.map((restaraunt) => (
+        <Restaurant key={restaraunt.id} name={restaraunt.name} menu={restaraunt.menu} reviews={restaraunt.reviews}/>
       ))}
     </section>
   )
