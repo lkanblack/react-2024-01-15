@@ -1,0 +1,11 @@
+.restaraunt-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-around;
+  max-width: 1122px;
+  margin: 0 auto;
+  padding: 30px 0px;
+  min-height: 85vh;
+  align-items: baseline;
+}
