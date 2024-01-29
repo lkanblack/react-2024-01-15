@@ -1,6 +1,8 @@
 import {Restaurant} from '../restaraunt/component';
 import { useState } from 'react';
 
+import styles from './style.module.scss';
+
 export const Tabs = ({restaurants}) => {
 
   const [selectedRestaurant, setSelectedRestaurant] = useState();
@@ -10,9 +12,10 @@ export const Tabs = ({restaurants}) => {
   }
 
   return (
-    <div>
-        {restaurants.map((restaraunt) => (
-          <label>
+    <div className={styles.container}>
+      <div className={styles.tabs}>
+      {restaurants.map((restaraunt) => (
+          <label className={styles.tab}>
             <input 
               type="radio"
               name="tab-input"
@@ -21,7 +24,10 @@ export const Tabs = ({restaurants}) => {
             <div>{restaraunt.name}</div>
           </label>
         ))}
-          <div className="tab">
+      </div>
+
+
+          <div>
           {selectedRestaurant && (
             <Restaurant
               name={selectedRestaurant}
