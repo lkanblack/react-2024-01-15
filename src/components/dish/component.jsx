@@ -16,16 +16,13 @@ export const Dish = ({dish}) => {
     }
   }
 
-  const disableInc = count === 5;
-  const disableDec = count === 0;
-
   return (
   <div>
     {dish.name}
     <span className="counter">
-      <button disabled={disableDec} onClick={countDec}>-</button>
+      <button disabled={count === 0} onClick={countDec}>-</button>
       {count}
-      <button disabled={disableInc} onClick={counterInc}>+</button>
+      <button disabled={count === 5} onClick={counterInc}>+</button>
     </span>
   </div>
   );
