@@ -1,6 +1,7 @@
 import './style.scss';
 import { Menu } from '../menu/components';
 import { Reviews } from '../reviews/component';
+import { ReviewForm } from '../review-form/component';
 
 export const Restaurant = ({ name, menu, reviews }) => {
   return (
@@ -10,6 +11,7 @@ export const Restaurant = ({ name, menu, reviews }) => {
       <Menu menu={menu} />
       <h3>Reviews</h3>
       <Reviews reviews={reviews} />
+      <ReviewForm />
     </div>
   );
 }
