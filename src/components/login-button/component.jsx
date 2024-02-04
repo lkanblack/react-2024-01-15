@@ -11,7 +11,7 @@ export const LoginButton = () => {
       setIsLogged(false);
 
     } else {
-      setContext({user:"John Wick", email:"john@wick.com"});
+      setContext({name:"John Wick", email:"john@wick.com"});
       setIsLogged(true);
     }
   }

@@ -9,7 +9,7 @@ export const Header = () => {
 
   return (
     <header className={styles.root}>
-      <h2>Welcome, {user.user ? user.user : "Guest"}</h2>
+      <h2>Welcome, {user.name ? user.name : "Guest"}</h2>
       <LoginButton setUser={setUser} />
     </header>
   );

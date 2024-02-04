@@ -24,7 +24,7 @@ const reducer = (state, action) => {
 export const ReviewForm = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const [{ user }] = useContext(UserContext); 
+  const [{ name }] = useContext(UserContext); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,13 +35,13 @@ export const ReviewForm = () => {
 
   return (
     <>  
-    {user ? ( <form className={styles.form} onSubmit={handleSubmit}>
+    {name ? ( <form className={styles.form} onSubmit={handleSubmit}>
     <label htmlFor="name">Name</label>
     <input
       type="text"
       name="name"
       id="name"
-      value={user}
+      value={name}
       onChange={(e) => dispatch({ type: "SET_NAME", payload: e.target.value })}
     />
 
