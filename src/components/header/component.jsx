@@ -1,17 +1,16 @@
+// Header.jsx
 import styles from './styles.module.scss';
 import { LoginButton } from '../login-button/component';
 import { UserContext } from '../../contexts/user';
-import { useState } from 'react';
+import { useContext } from 'react';
 
 export const Header = () => {
+  const [user, setUser] = useContext(UserContext);
 
-  const [context, setContext] = useState("Guest");
-  return(
+  return (
     <header className={styles.root}>
-      <UserContext.Provider value={[context, setContext]}>
-        <h2>Welcome, {context.user ? context.user : context}</h2>
-        <LoginButton />
-      </UserContext.Provider>
-      </header>
-  )
-}
+      <h2>Welcome, {user.user ? user.user : "Guest"}</h2>
+      <LoginButton setUser={setUser} />
+    </header>
+  );
+};

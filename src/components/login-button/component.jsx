@@ -5,7 +5,6 @@ import { useContext, useState } from 'react';
 export const LoginButton = () => {
   const [isLogged, setIsLogged] = useState(false);
   const [context, setContext] = useContext(UserContext);
-
   const handleContext = () => {
     if(isLogged){
       setContext("Guest");

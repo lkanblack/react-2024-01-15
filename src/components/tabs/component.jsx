@@ -8,6 +8,7 @@ export const Tabs = ({restaurants}) => {
 
   const [selectedRestaurant, setSelectedRestaurant] = useState();
 
+
   const tabHandler = (restarauntName) => {
     setSelectedRestaurant(restarauntName);
   }
@@ -32,3 +33,4 @@ export const Tabs = ({restaurants}) => {
     </div>
   )
 }
+
