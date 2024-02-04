@@ -7,8 +7,14 @@ export const LoginButton = () => {
   const [context, setContext] = useContext(UserContext);
 
   const handleContext = () => {
-    setContext({user:"John Wick", email:"john@wick.com"});
-    setIsLogged(true);
+    if(isLogged){
+      setContext("Guest");
+      setIsLogged(false);
+
+    } else {
+      setContext({user:"John Wick", email:"john@wick.com"});
+      setIsLogged(true);
+    }
   }
 
   return (
