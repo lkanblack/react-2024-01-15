@@ -1,4 +1,7 @@
 .root {
-  background-color: #fafafa;
-  padding: 6px 12px;
+    background-color: #fafafa;
+    padding: 6px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
 }
