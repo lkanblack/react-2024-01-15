@@ -4,9 +4,9 @@ import { RestarauntList } from "./components/restarauntList/component";
 import { UserContext } from "./contexts/user";
 
 export const App = () => {
-  const [context, setContext] = useState("");
+  const [user, setUser] = useState("");
   return(
-    <UserContext.Provider value={[context, setContext]}>
+    <UserContext.Provider value={[user, setUser]}>
       <Layout>
         <RestarauntList />
       </Layout>

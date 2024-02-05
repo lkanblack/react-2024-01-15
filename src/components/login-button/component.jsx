@@ -6,13 +6,12 @@ export const LoginButton = () => {
   const [isLogged, setIsLogged] = useState(false);
   const [context, setContext] = useContext(UserContext);
   const handleContext = () => {
-    if(isLogged){
-      setContext("Guest");
-      setIsLogged(false);
-
-    } else {
+    if(context === '') {
       setContext({name:"John Wick", email:"john@wick.com"});
       setIsLogged(true);
+    } else {
+      setContext("");
+      setIsLogged(false);
     }
   }
 
