@@ -1,3 +1,5 @@
-import configureStore from "@reduxjs/toolkit";
+import configureStore, { combineSlices } from "@reduxjs/toolkit";
 
-export const store = configureStore();
+export const store = configureStore({
+    reducer: combineSlices(),
+});
