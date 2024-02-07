@@ -12,5 +12,3 @@ export const store = configureStore({
         reviewsSlice
     ),
 });
-
-console.log(store.getState());

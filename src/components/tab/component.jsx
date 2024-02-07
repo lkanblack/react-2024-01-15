@@ -1,14 +1,19 @@
+import { useSelector } from 'react-redux';
 import styles from './style.module.scss';
+import { selectRestaurantById } from '../../redux/entities/restaurants/selector';
 
-export const Tab = ({restaraunt, handler}) => {
+export const Tab = ({id, onChange}) => {
+
+  const restaurant = useSelector(state => selectRestaurantById(state,id))
+  
     return (
         <label className={styles.tab}>
         <input 
           type="radio"
           name="tab-input"
-          onChange={() => handler(restaraunt.name)}
+          onChange={onChange}
         />
-        <div>{restaraunt.name}</div>
+        <div>{restaurant.name}</div>
       </label>
     )
 }

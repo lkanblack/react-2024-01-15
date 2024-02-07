@@ -1,34 +1,18 @@
-import {Restaurant} from '../restaraunt/component';
-import { useState } from 'react';
 import { Tab } from '../tab/component';
-
 import styles from './style.module.scss';
+import { useSelector } from 'react-redux';
+import { selectRestaurantIds } from '../../redux/entities/restaurants/selector';
 
-export const Tabs = ({restaurants}) => {
+export const Tabs = ({onSelect}) => {
 
-  const [selectedRestaurant, setSelectedRestaurant] = useState();
-
-
-  const tabHandler = (restarauntName) => {
-    setSelectedRestaurant(restarauntName);
-  }
-
+  const restarauntIds = useSelector(selectRestaurantIds);
+  
   return (
     <div className={styles.container}>
       <div className={styles.tabs}>
-      {restaurants.map((restaraunt) => (
-          <Tab restaraunt={restaraunt} handler={tabHandler}/>
+      {restarauntIds.map((id) => (
+          <Tab id={id} onChange={() => onSelect(id)}/>
         ))}
-      </div>
-
-      <div>
-        {selectedRestaurant && (
-          <Restaurant
-            name={selectedRestaurant}
-            menu={restaurants.find(restaraunt => restaraunt.name === selectedRestaurant).menu}
-            reviews={restaurants.find(restaraunt => restaraunt.name === selectedRestaurant).reviews}
-          />
-        )}
       </div>
     </div>
   )
