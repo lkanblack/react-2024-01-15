@@ -1,13 +1,13 @@
 import { Review } from "../review/comment";
 
-export const Reviews = ({reviews}) => {
+export const Reviews = ({restarauntReviewIds}) => {
   return (
     <ul>
-    {reviews.map((review) => (
-      <li key={review.id}>
-      <Review review={review}/>
-      </li>
-    ))}
+      {restarauntReviewIds.map((reviewId) => (
+        <li>
+        <Review id={reviewId}/>
+        </li>
+      ))}
     </ul>
   )
 };
