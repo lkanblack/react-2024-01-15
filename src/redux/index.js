@@ -4,6 +4,7 @@ import { dishesSlice } from "./entities/dishes";
 import { usersSlice } from "./entities/users";
 import { reviewsSlice } from "./entities/reviews";
 import { requestSlice } from "./ui/request";
+import { cartSlice } from "./ui/cart";
 
 export const store = configureStore({
   reducer: combineSlices(
@@ -11,6 +12,7 @@ export const store = configureStore({
     dishesSlice,
     usersSlice,
     reviewsSlice,
-    requestSlice
+    requestSlice,
+    cartSlice
   ),
 });
