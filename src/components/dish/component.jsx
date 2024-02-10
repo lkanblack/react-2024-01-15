@@ -1,7 +1,8 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import { selectDishById } from "../../redux/entities/dishes/selector";
+import { getDishes } from "../../redux/entities/dishes/thunks/get-dishes";
 
 export const Dish = ({ dishId }) => {
   const dish = useSelector((state) => selectDishById(state, dishId));
@@ -18,6 +19,12 @@ export const Dish = ({ dishId }) => {
       setCount(count - 1);
     }
   };
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getDishes());
+  }, [])
 
   return (
     <div>

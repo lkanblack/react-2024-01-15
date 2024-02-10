@@ -1,14 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { normalizedUsers } from "../../../mock/norm-mock";
+import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
+import { getUsers } from "./thunks/get-users";
+
+const entityAdapter = createEntityAdapter();
 
 export const usersSlice = createSlice({
-    name: "user",
-    initialState: {
-        entities: normalizedUsers.reduce((acc, user) => {
-            acc[user.id] = user;
-
-            return acc;
-        }),
-        ids: normalizedUsers.map(({ id }) => id),
-    },
+  name: "user",
+  initialState: entityAdapter.getInitialState(),
+  extraReducers: (builder) =>
+    builder.addCase(getUsers.fulfilled, (state, { payload }) => {
+      entityAdapter.setAll(state, payload);
+    }),
 });
