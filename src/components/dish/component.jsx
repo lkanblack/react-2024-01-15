@@ -1,23 +1,21 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import { selectDishById } from "../../redux/entities/dishes/selector";
+import { getDishesByRestaurantId } from "../../redux/entities/dishes/thunks/get-dishes";
+import { decrement, increment, selectProductAmountById } from "../../redux/ui/cart";
 
-export const Dish = ({ dishId }) => {
+export const Dish = ({ dishId, restarauntId }) => {
+
   const dish = useSelector((state) => selectDishById(state, dishId));
-  const [count, setCount] = useState(0);
 
-  const counterInc = () => {
-    if (count < 5) {
-      setCount(count + 1);
-    }
-  };
+  const amount = useSelector((state) => selectProductAmountById(state, dishId));
 
-  const countDec = () => {
-    if (count > 0) {
-      setCount(count - 1);
-    }
-  };
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getDishesByRestaurantId(restarauntId));
+  }, [restarauntId])
 
   return (
     <div>
@@ -25,13 +23,14 @@ export const Dish = ({ dishId }) => {
         <>
           {dish.name}
           <span className="counter">
-            <button disabled={count === 0} onClick={countDec}>
-              -
-            </button>
-            {count}
-            <button disabled={count === 5} onClick={counterInc}>
-              +
-            </button>
+          <button disabled={amount === 0} onClick={() => dispatch(decrement(dishId))}>
+            -
+          </button>
+          {amount}
+          <button disabled={amount === 5} onClick={() => dispatch(increment(dishId))}>
+            +
+          </button>
+
           </span>
         </>
       ) : (
