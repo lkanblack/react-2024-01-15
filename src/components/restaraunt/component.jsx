@@ -13,7 +13,7 @@ export const Restaurant = ({ restarauntId }) => {
     <div className='restaraunt'>
       <p>Restaraunt name: <b>{restaraunt.name}</b></p>
       <h3>Menu</h3>
-      <Menu restarauntMenuIds={restaraunt.menu} />
+      <Menu restarauntMenuIds={restaraunt.menu} restarauntId={restarauntId}/>
       <h3>Reviews</h3>
       <Reviews restarauntReviewIds={restaraunt.reviews} />
       <ReviewForm />

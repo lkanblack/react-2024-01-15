@@ -1,34 +1,21 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { selectDishById } from "../../redux/entities/dishes/selector";
-import { getDishes } from "../../redux/entities/dishes/thunks/get-dishes";
+import { getDishesByRestaurantIdByRestaurantId } from "../../redux/entities/dishes/thunks/get-dishes";
 import { decrement, increment, selectProductAmountById } from "../../redux/ui/cart";
 
-export const Dish = ({ dishId }) => {
+export const Dish = ({ dishId, restarauntId }) => {
+
   const dish = useSelector((state) => selectDishById(state, dishId));
-  // const [count, setCount] = useState(0);
 
   const amount = useSelector((state) => selectProductAmountById(state, dishId));
 
   const dispatch = useDispatch();
 
-  const counterInc = () => {
-    if (amount < 5) {
-      // setCount(count + 1);
-    }
-  };
-
-  const countDec = () => {
-    if (amount > 0) {
-      // setCount(count - 1);
-    }
-  };
-
-
   useEffect(() => {
-    dispatch(getDishes());
-  }, [])
+    dispatch(getDishesByRestaurantIdByRestaurantId(restarauntId));
+  }, [restarauntId])
 
   return (
     <div>
