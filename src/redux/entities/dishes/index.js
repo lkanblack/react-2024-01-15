@@ -1,5 +1,5 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
-import { getDishesByRestaurantIdByRestaurantId } from "./thunks/get-dishes";
+import { getDishesByRestaurantId } from "./thunks/get-dishes";
 
 const entityAdapter = createEntityAdapter();
 
@@ -10,12 +10,9 @@ export const dishesSlice = createSlice({
     selectDishIds: (state) => state.ids,
   },
   extraReducers: (builder) =>
-    builder.addCase(
-      getDishesByRestaurantIdByRestaurantId.fulfilled,
-      (state, { payload }) => {
-        entityAdapter.upsertMany(state, payload);
-      }
-    ),
+    builder.addCase(getDishesByRestaurantId.fulfilled, (state, { payload }) => {
+      entityAdapter.upsertMany(state, payload);
+    }),
 });
 
 export const { selectDishIds } = dishesSlice.selectors;

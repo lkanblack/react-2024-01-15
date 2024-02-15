@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { selectDishById } from "../../redux/entities/dishes/selector";
-import { getDishesByRestaurantIdByRestaurantId } from "../../redux/entities/dishes/thunks/get-dishes";
+import { getDishesByRestaurantId } from "../../redux/entities/dishes/thunks/get-dishes";
 import { decrement, increment, selectProductAmountById } from "../../redux/ui/cart";
 
 export const Dish = ({ dishId, restarauntId }) => {
@@ -14,7 +14,7 @@ export const Dish = ({ dishId, restarauntId }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getDishesByRestaurantIdByRestaurantId(restarauntId));
+    dispatch(getDishesByRestaurantId(restarauntId));
   }, [restarauntId])
 
   return (
